@@ -17,10 +17,10 @@ $barra=[
 $usuario=getenv("MYSQL_USER");
 
 //dibuja la plantilla de la vista
-inicioCabecera("APLICACION PRIMER TRIMESTRE");
+inicioCabecera("tienda");
 cabecera();
 finCabecera();
-inicioCuerpo("2DAW APLICACION",$barra);
+inicioCuerpo("TIENDA",$barra);
 cuerpo();  //llamo a la vista
 finCuerpo();
 // **********************************************************
