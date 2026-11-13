@@ -6,6 +6,7 @@ abstract class MuebleBase{
     const MAXIMO_MUEBLES=5;
     
     private static int $mueblesCreados = 0;
+    private Caracteristicas $caracteristicas;
 
     // Propiedades (privadas: solo con set/get)
     private string $nombre = "";
@@ -190,6 +191,10 @@ abstract class MuebleBase{
     {
         $numero = self::MAXIMO_MUEBLES - self::$mueblesCreados;
         return $numero > 0;
+    }
+
+    public function anadirCaracteristicas (string $nombre,Caracteristicas $caracteristica,){
+        
     }
 
     /**

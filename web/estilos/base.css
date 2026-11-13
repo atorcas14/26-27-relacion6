@@ -71,6 +71,10 @@ body {
     
 }
 
+#img1{
+    width: 75px;
+    height: 75px;
+}
 #pie{
     background-color: #81e714;
     color: blue;
