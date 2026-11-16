@@ -38,6 +38,7 @@ if (\VALNORMAL\validaEntero($idPost, 1, count($muebles), 0)) {
         "fechaIni" => $mueble->getFechaIniVenta(),
         "fechaFin" => $mueble->getFechaFinVenta(),
         "precio" => $mueble->getPrecio(),
+        // "material"=>$mueble->getMaterialDescripcion(),
     ];
     $adicionales = $mueble->damePropiedadesAdicionales();
     foreach ($adicionales as $n) {
@@ -110,6 +111,7 @@ if (\VALNORMAL\validaEntero($idPost, 1, count($muebles), 0)) {
                 $setter = "set" . ucfirst($n);
                 $mueble->$setter($datos[$n]);
             }
+            $mueble->setMaterial($datos["material"]);
             $guardado = true;
         }
     }
@@ -155,6 +157,7 @@ function mostrarFormularioModificar(MuebleBase $mueble, int $id, array $datos, a
     foreach ($mueble->damePropiedadesAdicionales() as $n) {
         campoTexto($n, $n, $datos, $errores);
     }
+    // campoTexto("Material", "_materiales",$datos,$errores);
 
     echo "<p><input type='submit' name='guardar' value='Guardar cambios'></p>";
     echo "</form>";

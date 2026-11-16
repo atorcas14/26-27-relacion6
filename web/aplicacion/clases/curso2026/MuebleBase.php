@@ -16,6 +16,7 @@ abstract class MuebleBase{
     private string $fechaIniVenta = "01/01/2020";
     private string $fechaFinVenta = "31/12/2040";
     private float $precio = 30.0;
+    private Materiales $_materiales; //Puesto en el checkpoint
 
     /**
      * Constructor
@@ -30,7 +31,7 @@ abstract class MuebleBase{
      */
     public function __construct(string $nombre,string $fabricante = "FaMu:",string $pais = "ESPAÑA",
                                 int $anio = 2020,string $fechaIniVenta = "01/01/2020",string $fechaFinVenta = "31/12/2040",
-                                float $precio = 30.0) {
+                                float $precio = 30.0){//, Materiales $materiales) {
         // Límite de instancias
         if (self::$mueblesCreados >= self::MAXIMO_MUEBLES) {
             throw new Exception("No se pueden crear más de " . self::MAXIMO_MUEBLES . " muebles");
@@ -52,7 +53,9 @@ abstract class MuebleBase{
         }
         if (!$this->setFechaFinVenta($fechaFinVenta)) $this->fechaFinVenta = "31/12/2040";
         if (!$this->setPrecio($precio)) $this->precio = 30.0;
-
+        
+        // $this-> _materiales = dameNumero($materiales);
+        
         self::$mueblesCreados++;   // solo cuenta si se ha creado bien
         $this -> caracteristicas = new Caracteristicas();
     }
@@ -67,6 +70,18 @@ abstract class MuebleBase{
     public function __get(string $nombre): mixed
     {
         throw new Error("Propiedad inaccesible o inexistente: $nombre");
+    }
+
+    //-----------Materiales-----------
+
+    //Funcion que devuelve la descripcion del material
+    // public function getMaterialDescripcion():string{ 
+    //     return dameNombre($this->_materiales);
+    // }
+
+    //Funcion que cambia el valor al material
+    public function setMaterial(Materiales $material) : void {
+        $this->_material = $material;
     }
 
     // ---------- Nombre ----------
@@ -226,6 +241,7 @@ abstract class MuebleBase{
         . ", vendido desde " . $this->fechaIniVenta
         . " hasta " . $this->fechaFinVenta
         . ", precio " . $this->precio;
+        // . ", de material ". dameNombre($_materiales);
         if (count($this->caracteristicas) > 0) {
             $texto .= ", características " . $this->caracteristicas;
         }

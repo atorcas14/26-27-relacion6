@@ -53,6 +53,7 @@ function mostrarTabla(array $muebles)
             echo "<tr><td>$i</td><td>" . esc(get_class($m)) . "</td><td>" . esc($m->getNombre())
                 . "</td><td>" . esc($m->getFabricante()) . "</td><td>" . esc($m->getAnio())
                 . "</td><td>" . esc($m->getPrecio()) . "</td></tr>";
+                // . "</td><td>" . esc($m->getMaterial()) . "</td></tr>";
         }
         echo "</table>";
     }

@@ -53,7 +53,21 @@ class Caracteristicas implements IteratorAggregate, Countable{
         return count($this->_props);
     }
 
-    // car1:valor1;car2:valor2;...
+    /**
+     * Funcion para crear el numero de serie
+     *
+     * @return integer
+     */
+    public function numero_serie():int{
+        $num = rand(0,999999999999999);
+        return $num;
+    }
+
+    /**
+     * Funcion de toString
+     *
+     * @return string
+     */
     public function __toString(): string
     {
         $partes = [];
@@ -66,6 +80,7 @@ class Caracteristicas implements IteratorAggregate, Countable{
                 $texto = (string)$valor;
             }
             $partes[] = $nombre . ":" . $texto;
+            // $partes[] .= numero_serie();
         }
         return implode(";", $partes);
     }

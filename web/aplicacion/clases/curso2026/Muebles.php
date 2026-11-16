@@ -11,19 +11,19 @@ function dameMuebles(): array
     static $muebles = null;   // se conserva entre llamadas de la misma petición
 
     if ($muebles === null) {
-        $m1 = new MuebleReciclado("silla eco", "Verde", "Francia", 2021, "01/06/2021", "31/12/2035", 80, 60);
+        $m1 = new MuebleReciclado("silla eco", "Verde", "Francia", 2021, "01/06/2021", "31/12/2035", 80,60); //Materiales::Aluminio,60);
         $m1->anadirCaracteristicas("color", "verde", "apilable", true);
 
         $m2 = new MuebleTradicional("armario", "Roble", "Portugal", 2022, "01/03/2022", "31/12/2040", 300, 120.5, "A7");
         $m2->anadirCaracteristicas("puertas", 3, "material", "roble");
 
-        $m3 = new MuebleReciclado("banco de jardín", "Eco", "ESPAÑA", 2023, "15/05/2023", "31/12/2038", 150, 85);
+        $m3 = new MuebleReciclado("banco de jardín", "Eco", "ESPAÑA", 2023, "15/05/2023", "31/12/2038", 150,85);// Materiales::Madera,85);
         $m3->anadirCaracteristicas("longitud", 150, "exterior", true);
 
         $m4 = new MuebleTradicional("cómoda", "Pino", "ESPAÑA", 2020, "01/01/2020", "31/12/2040", 220, 80, "B2");
         $m4->anadirCaracteristicas("cajones", 4, "acabado", "barnizado");
 
-        $m5 = new MuebleReciclado("estantería", "Reutil", "Italia", 2024, "01/02/2024", "31/12/2040", 95, 40);
+        $m5 = new MuebleReciclado("estantería", "Reutil", "Italia", 2024, "01/02/2024", "31/12/2040", 95,40);//Materiales::Hierro ,40);
         $m5->anadirCaracteristicas("baldas", 5, "montaje", "fácil");
 
         $muebles = [1 => $m1, 2 => $m2, 3 => $m3, 4 => $m4, 5 => $m5];
@@ -59,6 +59,7 @@ function propiedadesMueble(MuebleBase $m): array
             "Inicio de venta" => $m->getFechaIniVenta(),
             "Fin de venta" => $m->getFechaFinVenta(),
             "Precio" => $m->getPrecio(),
+            // "Material" => $m->getMaterialDescripcion(),
         ];
         foreach ($m->damePropiedadesAdicionales() as $nombre) {
             $getter = "get" . ucfirst($nombre);
