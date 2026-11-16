@@ -1,5 +1,7 @@
 <?php 
 
+include_once(dirname(__FILE__) . "/aplicacion/clases/curso2026/Muebles.php"); 
+
 error_reporting(0);
 
 date_default_timezone_set('Europe/Berlin');
