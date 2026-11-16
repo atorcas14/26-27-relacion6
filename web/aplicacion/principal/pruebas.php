@@ -180,6 +180,7 @@ function cabecera() {}
 //vista
 function cuerpo($pruebas)
 {
+    echo "<p><a href='/aplicacion/principal/index.php'>Ir a formulario</a></p><br>";
     echo "<pre style='white-space:pre-wrap'>";
     foreach ($pruebas as $titulo => $lineas) {
         echo "<strong>" . ($titulo) . "</strong>\n";

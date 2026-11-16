@@ -90,6 +90,7 @@ function mostrarDetalle(array $detalle)
 //vista
 function cuerpo($muebles, $seleccion, $detalle, $error)
 {
+    echo "<p><a href='/aplicacion/principal/pruebas.php'>Ir a pruebas.php</a></p>";
 
     echo "<h2>Muebles</h2>";
     mostrarTabla($muebles);
