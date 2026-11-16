@@ -41,7 +41,7 @@ final class MuebleTradicional extends MuebleBase{
     public function setPeso(mixed $peso): bool
     {
         $v = $peso;
-        if (!\VALNORMAL\validaEntero($v, 15.0, 300.0, 15.0)) {
+        if (!\VALNORMAL\validaReal($v, 15.0, 300.0, 15.0)) {
             return false;
         }
         $this->peso = $v;

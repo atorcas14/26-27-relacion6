@@ -38,5 +38,6 @@ function cuerpo()
     <a href="array.php">Array</a><br>
     <a href="cadenas.php">Cadenas</a><br>
     <a href="cargapagina.php">ejemplo de como cargar otra página</a><br>
+    <a href="../principal/pruebas.php">Relacion 6</a><br>
 <?php
 }

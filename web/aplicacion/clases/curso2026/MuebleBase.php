@@ -3,7 +3,7 @@ include_once(dirname(__FILE__)."../../../../scripts/librerias/val_normal.php");
 
 abstract class MuebleBase{
     
-    const MAXIMO_MUEBLES=5;
+    const MAXIMO_MUEBLES=10;
     
     private static int $mueblesCreados = 0;
     private Caracteristicas $caracteristicas;
@@ -54,6 +54,7 @@ abstract class MuebleBase{
         if (!$this->setPrecio($precio)) $this->precio = 30.0;
 
         self::$mueblesCreados++;   // solo cuenta si se ha creado bien
+        $this -> caracteristicas = new Caracteristicas();
     }
 
     // ---------- Sin sobrecarga dinámica de propiedades ----------
@@ -171,6 +172,24 @@ abstract class MuebleBase{
         return true;
     }
 
+    public function anadirCaracteristicas(mixed ...$args): int
+{
+    $pares = intdiv(count($args), 2);
+    for ($i = 0; $i < $pares; $i++) {
+        $nombre = $args[2 * $i];
+        if (!is_string($nombre) || $nombre === "") {
+            throw new InvalidArgumentException("El nombre de la característica debe ser una cadena no vacía");
+        }
+        $this->caracteristicas->$nombre = $args[2 * $i + 1];
+    }
+    return $pares;
+    }
+
+    public function getCaracteristicas(): Caracteristicas
+    {
+        return $this->caracteristicas;
+    }
+
     /**
      * Funcion que lo redefinen las clases hijas con las propiedades necesarias
      *
@@ -193,22 +212,23 @@ abstract class MuebleBase{
         return $numero > 0;
     }
 
-    public function anadirCaracteristicas (string $nombre,Caracteristicas $caracteristica,){
-        
-    }
 
     /**
      * Funcion que muestra todos los elementos
      */
     public function __toString(): string
     {
-        return "MUEBLE de clase " . get_class($this)
-            . " con nombre " . $this->nombre
-            . ", fabricante " . $this->fabricante
-            . ", fabricado en " . $this->pais
-            . " a partir del año " . $this->anio
-            . ", vendido desde " . $this->fechaIniVenta
-            . " hasta " . $this->fechaFinVenta
-            . ", precio " . $this->precio;
-    }
+        $texto = "MUEBLE de clase " . get_class($this)
+        . " con nombre " . $this->nombre
+        . ", fabricante " . $this->fabricante
+        . ", fabricado en " . $this->pais
+        . " a partir del año " . $this->anio
+        . ", vendido desde " . $this->fechaIniVenta
+        . " hasta " . $this->fechaFinVenta
+        . ", precio " . $this->precio;
+        if (count($this->caracteristicas) > 0) {
+            $texto .= ", características " . $this->caracteristicas;
+        }
+        return $texto;
+        }
 }

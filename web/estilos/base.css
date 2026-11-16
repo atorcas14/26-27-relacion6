@@ -1,14 +1,14 @@
 @charset "UTF8";
 
 body {
-    background-color: cyan;
+    background-color: #8080ff;
     font-size: 16px;
 }
 
 #documento{
     margin: 0 auto;
-    background-color: #8080ff;
-    width: 700px;
+    background-color: cyan;
+    width: 1000px;
 }
 #cabecera{
     background-color: #14e737;
@@ -41,12 +41,12 @@ body {
 }
 
 .boton a:hover{
-    background-color:cyan;
+    background-color:#ff9800;
     color: black;
 }
 
 .boton:hover{
-    background-color:cyan;
+    background-color:#ff9800;
     color: black;
 }
 
@@ -71,10 +71,6 @@ body {
     
 }
 
-#img1{
-    width: 75px;
-    height: 75px;
-}
 #pie{
     background-color: #81e714;
     color: blue;
@@ -99,4 +95,35 @@ body {
 
 .barraUbicacion{
     background-color: #14e737;
+}
+
+header{
+    display: flex;
+}
+
+.titulo{
+    display: block;
+    margin-left: 20%;
+}
+
+img{
+    display: block;
+    width: 75px;
+    height: 75px;
+    margin: 10% 20% 0% 10%;
+}
+
+.mi-boton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #199319;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 1.5%;
+}
+
+.mi-boton:hover {
+  background-color: #223094;
 }

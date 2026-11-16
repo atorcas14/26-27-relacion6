@@ -18,7 +18,7 @@ final class MuebleReciclado extends MuebleBase{
      * @param float $precio
      * @param integer $porcentajeReciclado
      */
-    #[Override]
+    
     public function __construct(string $nombre, string $fabricante = "FaMu:", string $pais = "ESPAÑA", 
                                 int $anio = 2020, string $fechaIniVenta = "01/01/2020", 
                                 string $fechaFinVenta = "31/12/2040", float $precio = 30.0, int $porcentajeReciclado=10){
